@@ -1,8 +1,8 @@
 ## Group Predictors - Book recommender System 
 ### Group Predictors - 
-Gajam Anurag
-Monica Lakshmi Mandapati
-Annapurna Ananya Annadatha
+Gajam Anurag, 
+Monica Lakshmi Mandapati,
+Annapurna Ananya Annadatha,
 Akshay Madiwalar
 
 
