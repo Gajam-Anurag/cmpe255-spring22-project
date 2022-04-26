@@ -53,10 +53,10 @@ For Ratings Table:
 
 | Owner      | Tasks Worked on/Going to work on |
 | ----------- | ----------- |
-| Gajam Anurag       | Data Cleaning and Pre-Processing       |
-| Monica Lakshmi Mandapati  | Data Cleaning        |
-| Annapurna Ananya Annadatha    | Pre-Processing       |
-| Akshay Madiwalar  |  Data Cleaning and Pre-Processing      |
+| Gajam Anurag       | Data Pre-Processing books dataset    |
+| Monica Lakshmi Mandapati  | Data Pre-Processing on users dataset        |
+| Annapurna Ananya Annadatha    | Pre-Processing on ratings dataset       |
+| Akshay Madiwalar  |  Pre-processing the Merged data( books, users and ratings)       |
 
 ### Week-3
 
