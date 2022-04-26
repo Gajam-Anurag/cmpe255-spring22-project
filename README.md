@@ -55,8 +55,8 @@ For Ratings Table:
 | ----------- | ----------- |
 | Gajam Anurag       | Data Pre-Processing on books dataset    |
 | Monica Lakshmi Mandapati  | Data Pre-Processing on users dataset        |
-| Annapurna Ananya Annadatha    | Pre-Processing on ratings dataset       |
-| Akshay Madiwalar  |  Pre-processing the Merged data( books, users and ratings)       |
+| Annapurna Ananya Annadatha    | Data Pre-Processing on ratings dataset       |
+| Akshay Madiwalar  |  Data Pre-processing the Merged data( books, users and ratings)       |
 
 ### Week-3
 
