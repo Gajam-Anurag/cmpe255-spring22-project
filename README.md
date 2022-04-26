@@ -37,6 +37,14 @@ For Ratings Table:
 * Upper-casing all the alphabets present in the ISBN column.
 * Removal of duplicate entries from the table.
 
+### 2. Algorithms Chosen:
+
+#### 2.1 Popularity Based Recommendation
+#### 2.2 Collaborative Based Recommendation
+#### 2.3 Content Based Recommendation
+#### 2.4 Hybrid Based Recommendation
+
+
 ## Weekly Reports
 
 
@@ -44,8 +52,8 @@ For Ratings Table:
 
 | Owner      | Tasks Worked on/Going to work on |
 | ----------- | ----------- |
-| Gajam Anurag       | Researched papers about other recommendation systems       |
-| Monica Lakshmi Mandapati  | Researched papers about other recommendation systems        |
+| Gajam Anurag       | Gathered/Researched different ideas and discussed      |
+| Monica Lakshmi Mandapati  |       |
 | Annapurna Ananya Annadatha    | Researched papers about other recommendation systems        |
 | Akshay Madiwalar  | Researched papers about other recommendation systems        |
 
@@ -58,20 +66,20 @@ For Ratings Table:
 | Annapurna Ananya Annadatha    | Data Pre-Processing on ratings dataset       |
 | Akshay Madiwalar  |  Data Pre-processing on Merged data( books, users and ratings)       |
 
-### Week-3
+### Week-3: Data Visualization
 
 | Owner      | Tasks Worked on/Going to work on |
 | ----------- | ----------- |
-| Gajam Anurag       | Review document and discuss       |
-| Monica Lakshmi Mandapati  | Review document for discussion        |
-| Annapurna Ananya Annadatha    | Review document for discussion        |
-| Akshay Madiwalar  | Review document for discussion        |
+| Gajam Anurag       | Data Visualization       |
+| Monica Lakshmi Mandapati  | Data Visualization        |
+| Annapurna Ananya Annadatha    | Data Visualization        |
+| Akshay Madiwalar  | Data Visualization        |
 
-### Week-4
+### Week-4: Algorithm Implementation
 
 | Owner      | Tasks Worked on/Going to work on |
 | ----------- | ----------- |
-| Gajam Anurag       | Review document and discuss       |
-| Monica Lakshmi Mandapati  | Review document for discussion        |
-| Annapurna Ananya Annadatha    | Review document for discussion        |
-| Akshay Madiwalar  | Review document for discussion        |
+| Gajam Anurag       | Algorithm Implementation       |
+| Monica Lakshmi Mandapati  | Algorithm Implementation       |
+| Annapurna Ananya Annadatha    | Algorithm Implementation       |
+| Akshay Madiwalar  | Algorithm Implementation       |
