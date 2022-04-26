@@ -11,7 +11,7 @@ Today the amount of information in the internet growth very rapidly and people n
 
 ## Description:
 
-<p>Data used for this project was taken from <a href=https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset/>here</a></p>
+<p>Dataset taken for this project can be found <a href=https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset/>here</a></p>
 
 ### 1. Data Cleaning and Pre-Processing
 The dataset consists of three tables; Books, Users, and Ratings. Data from all three tables are cleaned and preprocessed separately as defined below briefly:<br><br>
