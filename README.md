@@ -53,9 +53,9 @@ For Ratings Table:
 | Owner      | Tasks Worked on/Going to work on |
 | ----------- | ----------- |
 | Gajam Anurag       | Gathered/Researched different ideas and discussed      |
-| Monica Lakshmi Mandapati  |       |
-| Annapurna Ananya Annadatha    | Researched papers about other recommendation systems        |
-| Akshay Madiwalar  | Researched papers about other recommendation systems        |
+| Monica Lakshmi Mandapati  |  Researched different project ideas     |
+| Annapurna Ananya Annadatha    |   Researched different algorithm approaches     |
+| Akshay Madiwalar  | Researched papers about available recommendation systems        |
 
 ### Week-2: Data Cleaning and Pre-Processing 
 
