@@ -1,4 +1,4 @@
-# Project Name: Book recommender System 
+# Project Name: Book Recommender System 
 ## Team Name: Predictors
 1. Gajam Anurag 
 2. Monica Lakshmi Mandapati
