@@ -35,6 +35,7 @@ def create_app(test_config=None):
     model.preprocess_users()
     model.preprocess_ratings()
     model.merge_data()
+    model.content_based()
 
     @app.route('/')
     def index():
@@ -50,6 +51,42 @@ def create_app(test_config=None):
             result = model.popular_books(int(n))
             return render_template('popular.html',result=result,n=n)
 
+    @app.route('/popularBasedAuthor', methods = ['POST','GET'])
+    def popular_basedauthor():
+        if request.method == 'GET':
+            return render_template('author.html')
+        elif request.method == 'POST':
+            author_name = request.form["AuthorName"]
+            result = model.popular_based_author(author_name)
+            return render_template('author.html',result = result, author_name = author_name)
+
+    @app.route('/popularBasedPublisher', methods = ['POST','GET'])
+    def popular_basedpublisher():
+        if request.method == 'GET':
+            return render_template('publisher.html')
+        elif request.method == 'POST':
+            publisher_name = request.form["PublisherName"]
+            result = model.popular_based_publisher(publisher_name)
+            return render_template('publisher.html',result = result, publisher_name=publisher_name)
+    
+    @app.route('/contentBasedCount', methods = ['POST','GET'])
+    def content_based_Count():
+        if request.method == 'GET':
+            return render_template('count.html')
+        elif request.method == 'POST':
+            book_name = request.form["CountName"]
+            print(book_name)
+            result = model.content_based_CountVectorizer(book_name)
+            return render_template('count.html',result = result, book_name=book_name)
+    
+    @app.route('/contentBasedTfidf', methods = ['POST','GET'])
+    def content_basedtfidf():
+        if request.method == 'GET':
+            return render_template('tfidf.html')
+        elif request.method == 'POST':
+            book_name = request.form["TfidfName"]
+            result = model.content_based_tfidf(book_name)
+            return render_template('tfidf.html',result = result, book_name=book_name)
 
     return app
 

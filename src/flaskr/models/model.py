@@ -134,6 +134,99 @@ class Recommender_System:
             if i != n-1:
                 name += " "
         return name
+    
+    def popular_based_author(self,author_name):
+
+       
+        author = self.get_name(author_name)
+
+        temp_data = self.books1[self.books1['Book-Author'] == author]
+        temp_data = self.popular_based_Top_Books(temp_data, 5)
+
+        return temp_data
+    
+    def popular_based_publisher(self, publisher_name):
+        
+        publisher = self.get_name(publisher_name)
+        temp_data = self.books1[self.books1['Publisher'] == publisher]
+        print(len(temp_data))
+        temp_data = self.popular_based_Top_Books(temp_data, 5)
+
+        return temp_data
+
+    def content_based(self) -> None:
+
+        print('\n\nBuilding Content Based Recommender system')
+
+        data_books = self.books1.groupby('Book-Title').count()['Book-Rating'].reset_index().sort_values('Book-Rating', ascending=False)
+        data_books.columns = ['Book-Title','Total-Rating']
+
+        self.final_data_books = self.books1.merge(data_books, left_on='Book-Title', right_on='Book-Title', how='left')
+
+        self.final_data_books = self.final_data_books[self.final_data_books['Total-Rating'] > 200 ].reset_index(drop=True)
+
+        def text_preprocessing(sms):
+            # removing punctuations
+            sms_wo_punct = [x for x in sms if x not in string.punctuation]
+            sms_wo_punct = ''.join(sms_wo_punct)
+
+            # making into lower case
+            sms_wo_punct = sms_wo_punct.lower()
+
+            return sms_wo_punct
+
+        self.final_data_books['Processed-Book'] = self.final_data_books['Book-Title'].apply(text_preprocessing)
+
+        ## Implementing CountVectorizer
+
+        countvec = CountVectorizer(stop_words='english',ngram_range=(1, 2))
+        countvec_matrix = countvec.fit_transform(self.final_data_books['Processed-Book'])
+
+        self.cosine_mat_count = cosine_similarity(countvec_matrix, countvec_matrix)
+
+        ## Implementing TF-IDF Vectorizer
+        tfidf = TfidfVectorizer(ngram_range=(1, 2), min_df = 1, stop_words='english')
+        tfidf_matrix =  tfidf.fit_transform(self.final_data_books['Processed-Book'])
+
+        self.cosine_mat_tfidf = cosine_similarity(tfidf_matrix, tfidf_matrix)
+
+        print('\n\nDone Content Based Recommender system')
+
+    
+    def content_based_CountVectorizer(self,bookName):
+
+        bookName = self.get_name(bookName)
+
+        isbn = self.books.loc[self.books['Book-Title'] == bookName].reset_index(drop = True).iloc[0]['ISBN']
+
+        idx = self.final_data_books.index[self.final_data_books['ISBN'] == isbn].tolist()[0]
+        similar_indices = self.cosine_mat_count[idx].argsort()[::-1]
+
+        content = []
+        similar_items = []
+        for i in similar_indices:
+            if self.final_data_books['Book-Title'][i] != bookName and self.final_data_books['Book-Title'][i] not in similar_items and len(similar_items) < 5:
+                similar_items.append(self.final_data_books['Book-Title'][i])
+                content.append(self.final_data_books['Book-Title'][i])
+        
+
+        return similar_items
+    
+    def content_based_tfidf(self, bookName):
+
+        bookName = self.get_name(bookName)
+
+        isbn = self.books.loc[self.books['Book-Title'] == bookName].reset_index(drop = True).iloc[0]['ISBN']
+        idx = self.final_data_books.index[self.final_data_books['ISBN'] == isbn].tolist()[0]
+        similar_indices = self.cosine_mat_tfidf[idx].argsort()[::-1]
+
+        similar_items = []
+        for i in similar_indices:
+            if self.final_data_books['Book-Title'][i] != bookName and self.final_data_books['Book-Title'][i] not in similar_items and len(similar_items) < 5:
+                similar_items.append(self.final_data_books['Book-Title'][i])
+        
+
+        return similar_items
 
 
         

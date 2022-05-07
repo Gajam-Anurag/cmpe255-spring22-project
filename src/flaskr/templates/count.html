@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #111;
+            }
+            .center {
+                margin: auto;
+                width: 60%;
+                border: 3px solid #73AD21;
+                padding: 10px;
+            }
+            .result{
+                color: grey;
+            }
+            label {
+                text-align: left;
+                width: 400px;
+                line-height: 26px;
+                margin-bottom: 10px;
+                font-size: 1.5em;
+                font-family: "Times New Roman", Times, serif;
+            }
+            input[type=text]:focus {
+                
+                height: 20px;
+                flex: 0 0 200px;
+                margin-left: 10px;
+            }
+            input[type=submit] {
+                padding: 15px;
+                padding: 10px 25px;
+                background: #99e0b2;
+                border: 0 none;
+                cursor: pointer;
+                -webkit-border-radius: 5px;
+                border-radius: 12px;
+            }
+        </style>
+    </head>
+    <body>  
+        <ul>
+            <li><a href="/">Home</a></li>           
+          </ul>
+
+        <div class ="center">
+            <h1>Search by book name: </h1>
+            <form  method="POST">
+                <div>
+                    <label for="CountName">Enter the Book Name:</label>
+                    <input type="text" id="CountName" name="CountName">
+                    <br>
+                    <input type="submit">
+                </div>
+            </form>
+            <h3>Book Name: {{book_name}}</h3>
+            <h3>Recommended Books: </h3>
+            <div class="result">
+            {% for your_list_element in result %}
+                <p>{{ your_list_element }} </p>
+            {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
