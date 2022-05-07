@@ -40,6 +40,16 @@ def create_app(test_config=None):
     def index():
         return render_template('home.html')
 
+    @app.route('/popular', methods = ['POST','GET'])
+    def popular_basedTop_Books():
+        print(request.method)
+        if request.method == 'GET':
+            return render_template('popular.html')
+        elif request.method == 'POST':
+            n = request.form['n']
+            result = model.popular_books(int(n))
+            return render_template('popular.html',result=result,n=n)
+
 
     return app
 
