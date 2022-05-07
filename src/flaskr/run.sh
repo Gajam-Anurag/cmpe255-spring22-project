@@ -1,3 +1,4 @@
-SET export FLASK_APP=flaskr
-SET export FLASK_ENV=development
+export FLASK_DEBUG=true
+export FLASK_APP=app.py
+export FLASK_ENV=development
 flask run
