@@ -32,6 +32,9 @@ def create_app(test_config=None):
     # Initialize Recommender Systems
     model = Recommender_System()
     model.preprocess_books()
+    model.preprocess_users()
+    model.preprocess_ratings()
+    model.merge_data()
 
     @app.route('/')
     def index():
