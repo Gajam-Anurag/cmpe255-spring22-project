@@ -37,9 +37,18 @@ def create_app(test_config=None):
     model.merge_data()
     model.content_based()
 
+    PEOPLE_FOLDER = os.path.join('static', 'images')
+    app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDER
+
     @app.route('/')
     def index():
         return render_template('home.html')
+    
+    @app.route('/visualize')
+    def visualize():
+        full_filename = os.listdir('static/images')
+        imagelist = ['images/' + image for image in full_filename]
+        return render_template("images.html", imagelist = imagelist)
 
     @app.route('/popular', methods = ['POST','GET'])
     def popular_basedTop_Books():
