@@ -6,6 +6,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 import string
 from scipy.sparse import csr_matrix
 from sklearn.neighbors import NearestNeighbors
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 class Recommender_System:
     def __init__(self) -> None:
@@ -119,37 +121,26 @@ class Recommender_System:
             result = pd.merge(temp_data, self.books, on='ISBN')
             result =  result.drop_duplicates().reset_index(drop = True)
             return result['Book-Title']
-        return "Invalid number of books entered!!"
+        return ["Invalid number of books entered!!"]
     
     def popular_books(self, n:int):
         return self.popular_based_Top_Books(self.books1, n)
     
-    def get_name(self, name):
-        temp_pub = name.split('_')
-        name = ""
-        n = len(temp_pub)
-
-        for i, val in enumerate(temp_pub):
-            name += str(val)
-            if i != n-1:
-                name += " "
-        return name
     
     def popular_based_author(self,author_name):
 
-       
-        author = self.get_name(author_name)
 
-        temp_data = self.books1[self.books1['Book-Author'] == author]
+        temp_data = self.books1[self.books1['Book-Author'] == author_name]
+        if len(temp_data) == 0:
+            return ["No Author Found"]
         temp_data = self.popular_based_Top_Books(temp_data, 5)
-
         return temp_data
     
     def popular_based_publisher(self, publisher_name):
         
-        publisher = self.get_name(publisher_name)
-        temp_data = self.books1[self.books1['Publisher'] == publisher]
-        print(len(temp_data))
+        temp_data = self.books1[self.books1['Publisher'] == publisher_name]
+        if len(temp_data) == 0:
+            return ["No Publisher Found"]
         temp_data = self.popular_based_Top_Books(temp_data, 5)
 
         return temp_data
@@ -195,7 +186,9 @@ class Recommender_System:
     
     def content_based_CountVectorizer(self,bookName):
 
-        bookName = self.get_name(bookName)
+        temp_data = self.books[self.books['Book-Title'] == bookName]
+        if len(temp_data) == 0:
+            return ["No book found"]
 
         isbn = self.books.loc[self.books['Book-Title'] == bookName].reset_index(drop = True).iloc[0]['ISBN']
 
@@ -214,7 +207,9 @@ class Recommender_System:
     
     def content_based_tfidf(self, bookName):
 
-        bookName = self.get_name(bookName)
+        temp_data = self.books[self.books['Book-Title'] == bookName]
+        if len(temp_data) == 0:
+            return ["No book found"]
 
         isbn = self.books.loc[self.books['Book-Title'] == bookName].reset_index(drop = True).iloc[0]['ISBN']
         idx = self.final_data_books.index[self.final_data_books['ISBN'] == isbn].tolist()[0]
