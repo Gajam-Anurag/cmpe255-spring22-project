@@ -40,6 +40,12 @@ For Ratings Table:
 ### 2. Algorithms Chosen:
 
 #### 2.1 Popularity Based Recommendation
+It is a type of recommendation system which works on the principle of popularity and or anything which is in trend. These systems check about the product or movie which are in trend or are most popular among the users and directly recommend those.
+Here we performed 3 different types:
+##### a. Popularity based on Ratings 
+##### b. Popularity based on Author 
+##### c. Popularity based on Publisher 
+
 #### 2.2 Collaborative Based Recommendation
 #### 2.3 Content Based Recommendation
 #### 2.4 Hybrid Based Recommendation
