@@ -8,8 +8,8 @@ from models.model import Recommender_System
 
 def create_app(test_config=None):
     # create and configure the app
-    app = Flask(__name__, instance_relative_config=True)
-    if __name__ == '__main__' :
+    app = Flask(_name_, instance_relative_config=True)
+    if _name_ == '_main_' :
         app.run(debug=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
@@ -36,6 +36,7 @@ def create_app(test_config=None):
     model.preprocess_ratings()
     model.merge_data()
     model.content_based()
+    model.collabarative_filtering()
 
     PEOPLE_FOLDER = os.path.join('static', 'images')
     app.config['UPLOAD_FOLDER'] = PEOPLE_FOLDER
@@ -96,6 +97,32 @@ def create_app(test_config=None):
             book_name = request.form["TfidfName"]
             result = model.content_based_tfidf(book_name)
             return render_template('tfidf.html',result = result, book_name=book_name)
+    
+    @app.route('/collaborativeKnn', methods = ['POST','GET'])
+    def collaborative_knnbooks():
+        if request.method == 'GET':
+            return render_template('knn.html')
+        elif request.method == 'POST':
+            book_name = request.form["KnnName"]
+            result = model.collabarative_knn_books(book_name)
+            return render_template('knn.html',result = result, book_name=book_name)
+    
+    @app.route('/collaborativeItem', methods = ["POST","GET"])
+    def collaborataive_item():
+        if request.method == 'GET':
+            return render_template('listbased.html')
+        elif request.method == 'POST':
+            book_name = request.form['listName']
+            result = model.collabarative_item_based(book_name)
+            return render_template('listbased.html', result=result, book_name=book_name)
+    
+    @app.route('/hybridApproach', methods = ['POST','GET'])
+    def hybrid_approach():
+        if request.method == 'GET':
+            return render_template('hybrid.html')
+        elif request.method == 'POST':
+            book_name = request.form['hybrid']
+            result = model.hybrid_approach(book_name)
+            return render_template('hybrid.html', result=result, book_name=book_name)
 
     return app
-
