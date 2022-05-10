@@ -46,9 +46,16 @@ Here we performed 3 different types:
 * Popularity based on Author 
 * Popularity based on Publisher 
 
-#### 2.2 Collaborative Based Recommendation
-#### 2.3 Content Based Recommendation
+#### 2.2 Content Based Recommendation
+It is another type of recommendation system which works on the principle of similar content. If a user is reading a book, then the system will check about other books of similar content or the same genre of the book the user is reading. There are various fundamentals attributes that are used to compute the similarity while checking about similar content. Here we performed on book title and converted the text to vector with 2 different bag of words technquies i.e., CountVectorizer and TFIDFVectorizer. Then we used cosine similarity to recommend books
+
+#### 2.3 Collaborative Based Recommendation
+It is considered to be one of the very smart recommender systems that work on the similarity between different users and also items that are widely used as an e-commerce website and also online book websites. It checks about the taste of similar users and does recommendations. 
+Here we performed Item Based Collaborative Filtering using KNN and Corelation technquie
+
+
 #### 2.4 Hybrid Based Recommendation
+A hybrid recommendation system is a special type of recommendation system which can be considered as the combination of the content and collaborative filtering method. Combining collaborative and content-based filtering together may help in overcoming the shortcoming we are facing at using them separately and also can be more effective in some cases. Hybrid recommender system approaches can be implemented in various ways like by using content and collaborative-based methods to generate predictions separately and then combining the prediction or we can just add the capabilities of collaborative-based methods to a content-based approach (and vice versa). Here we used percentile method to recommend books.
 
 
 ## Weekly Reports
