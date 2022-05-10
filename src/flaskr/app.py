@@ -110,11 +110,11 @@ def create_app(test_config=None):
     @app.route('/collaborativeItem', methods = ["POST","GET"])
     def collaborataive_item():
         if request.method == 'GET':
-            return render_template('listbased.html')
+            return render_template('correlation.html')
         elif request.method == 'POST':
-            book_name = request.form['listName']
+            book_name = request.form['ItemName']
             result = model.collabarative_item_based(book_name)
-            return render_template('listbased.html', result=result, book_name=book_name)
+            return render_template('correlation.html', result=result, book_name=book_name)
     
     @app.route('/hybridApproach', methods = ['POST','GET'])
     def hybrid_approach():
