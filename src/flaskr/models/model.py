@@ -176,7 +176,7 @@ class Recommender_System:
 
         self.final_data_books = self.books1.merge(data_books, left_on='Book-Title', right_on='Book-Title', how='left')
 
-        self.final_data_books = self.final_data_books[self.final_data_books['Total-Rating'] > 200 ].reset_index(drop=True)
+        self.final_data_books = self.final_data_books[self.final_data_books['Total-Rating'] > 80 ].reset_index(drop=True)
 
         def text_preprocessing(sms):
             # removing punctuations

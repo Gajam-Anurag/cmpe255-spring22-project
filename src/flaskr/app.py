@@ -8,8 +8,8 @@ from models.model import Recommender_System
 
 def create_app(test_config=None):
     # create and configure the app
-    app = Flask(_name_, instance_relative_config=True)
-    if _name_ == '_main_' :
+    app = Flask(__name__, instance_relative_config=True)
+    if __name__ == '__main__' :
         app.run(debug=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
