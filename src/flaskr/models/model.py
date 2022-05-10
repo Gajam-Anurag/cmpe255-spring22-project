@@ -248,7 +248,7 @@ class Recommender_System:
 
     def collabarative_filtering(self):
     
-        print('\n\nStarted building Collabarative Model based Approach')
+        print('\n\nStarted building Collabarative Memory based Approach')
 
         books_data = self.books1.groupby('Book-Title')['Book-Rating'].count().reset_index().sort_values('Book-Rating', ascending=False).reset_index(drop=True)
 
@@ -264,7 +264,7 @@ class Recommender_System:
         books_user_matrix = csr_matrix(self.books_user)
 
         ## Now we build with knn neighbours using cosine similarity 
-        self.model = NearestNeighbors(metric = 'cosine', algorithm = 'brute')
+        self.model = NearestNeighbors(metric = 'cosine', algorithm = 'brute', p=2)
         self.model.fit(books_user_matrix)
 
 
@@ -286,33 +286,29 @@ class Recommender_System:
         self.ratings_matrix = self.coll_data.pivot_table(index='User-ID', columns = 'Book-Title', values='Book-Rating').fillna(0)
 
 
-        print('\n\nDone building Collabarative Model based Approach')
+        print('\n\nDone building Collabarative Memory based Approach')
 
     
     def collabarative_knn_books(self, bookName):
 
-        print(1)
 
         temp_data = self.books_data_final[self.books_data_final['Book-Title'] == bookName]
         if len(temp_data) == 0:
             return ["No book found"]
-        
-        print(2)
 
         ## Here I am getting 6 nearest neighbours(includes the entered book as well) for particular book
         distances, indices = self.model.kneighbors(self.books_user.loc[bookName].values.reshape(1, -1), n_neighbors = 6)
 
-        print(3)
-
         ## Printing all recommended books
         similar_item = []
+        print('\n\n\n')
         for i in range(0, len(distances.flatten())):
             if i == 0:
                 print('Recommendations for book:',bookName,'\n\n')
             if i > 0:
                 print(i,': ',self.books_user.index[indices.flatten()[i]],', with distance of',distances[0][i]) 
                 similar_item.append(self.books_user.index[indices.flatten()[i]])
-        
+        print('\n\n\n')
         return similar_item
     
     def collabarative_item_based(self, bookName):
@@ -323,6 +319,8 @@ class Recommender_System:
         
         ##Getting the top books 
         book_ids = self.ratings_matrix.corrwith(self.ratings_matrix[bookName]).sort_values(ascending=False).head(6)
+
+        print('\n\n\n',book_ids,'\n\n\n')
 
         ##returning recommended books
 
