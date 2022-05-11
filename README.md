@@ -79,20 +79,20 @@ A hybrid recommendation system is a special type of recommendation system which 
 | Annapurna Ananya Annadatha    | Data Pre-Processing on ratings dataset       |
 | Akshay Madiwalar  |  Data Pre-processing on Merged data( books, users and ratings)       |
 
-### Week-3: Data Visualization
+### Week-3: Data Visualization and Algorithm Implementation
 
 | Owner      | Tasks Worked on/Going to work on |
 | ----------- | ----------- |
-| Gajam Anurag       | Data Visualization       |
-| Monica Lakshmi Mandapati  | Data Visualization        |
-| Annapurna Ananya Annadatha    | Data Visualization        |
-| Akshay Madiwalar  | Data Visualization        |
+| Gajam Anurag       | Data Visualization and Algorithms  |
+| Monica Lakshmi Mandapati  | Data Visualization and Algorithms     |
+| Annapurna Ananya Annadatha    | Data Visualization and Algorithms      |
+| Akshay Madiwalar  | Data Visualization and Algorithms      |
 
-### Week-4: Algorithm Implementation
+### Week-4: Flask Implementation
 
 | Owner      | Tasks Worked on/Going to work on |
 | ----------- | ----------- |
-| Gajam Anurag       | Algorithm Implementation       |
-| Monica Lakshmi Mandapati  | Algorithm Implementation       |
-| Annapurna Ananya Annadatha    | Algorithm Implementation       |
-| Akshay Madiwalar  | Algorithm Implementation       |
+| Gajam Anurag       | Flask Application   |
+| Monica Lakshmi Mandapati  | UI Implementation      |
+| Annapurna Ananya Annadatha    | Models Deployment      |
+| Akshay Madiwalar  | Models Deployment      |
